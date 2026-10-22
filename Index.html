@@ -1,0 +1,742 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SK Wedding Invitation</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --wine: #651d35;
+  --gold: #c99b48;
+  --cream: #fff8ec;
+  --ink: #492a2b;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: #f5e8d8;
+  color: var(--ink);
+  text-align: center;
+  overflow-x: hidden;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Opening cover */
+#cover {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background:
+    radial-gradient(ellipse at top, #fff8e8, transparent 65%),
+    linear-gradient(145deg, #6a2039, #341421);
+}
+
+.cover-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  min-height: 650px;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 3px double var(--gold);
+  outline: 1px solid #f0d59b;
+  outline-offset: -10px;
+  background:
+    radial-gradient(circle at 50% 30%, #fffdf5, #f6e6c9);
+  box-shadow: 0 15px 50px #18081080;
+  overflow: hidden;
+}
+
+.cover-card::before,
+.cover-card::after {
+  content: "❧";
+  color: var(--gold);
+  font-size: 48px;
+  position: absolute;
+}
+
+.cover-card::before {
+  top: 12px;
+  left: 18px;
+}
+
+.cover-card::after {
+  bottom: 12px;
+  right: 18px;
+  transform: rotate(180deg);
+}
+
+.bismillah {
+  color: var(--wine);
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+.small-label {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #9b7135;
+  font-size: 12px;
+}
+
+.cover-title {
+  font-size: clamp(42px, 12vw, 62px);
+  color: var(--wine);
+  font-weight: normal;
+  font-style: italic;
+  margin: 12px 0;
+}
+
+.date-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: var(--wine);
+  font-size: 17px;
+  flex-wrap: wrap;
+}
+
+.date-line span {
+  padding: 7px 0;
+}
+
+.date-line .date-number {
+  border-left: 1px solid var(--gold);
+  border-right: 1px solid var(--gold);
+  padding: 7px 14px;
+  font-size: 26px;
+}
+
+.cover-year {
+  color: #9b7135;
+  letter-spacing: 6px;
+  margin-top: 10px;
+}
+
+.cover-name {
+  font-size: 30px;
+  color: var(--wine);
+  line-height: 1.3;
+}
+
+.cover-weds {
+  font-size: 20px;
+  color: #a37a3d;
+  font-style: italic;
+  margin: 7px 0;
+}
+
+.open-btn {
+  border: 0;
+  border-radius: 30px;
+  background: var(--wine);
+  color: white;
+  padding: 14px 28px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  box-shadow: 0 5px 15px #651d3540;
+  cursor: pointer;
+}
+
+.open-btn:active {
+  transform: scale(.97);
+}
+
+/* Full invitation */
+#invitation {
+  padding: 22px 12px 40px;
+  background:
+    radial-gradient(circle at top, #fffdf7, transparent 50%),
+    #f1e0cb;
+}
+
+.invite-card {
+  max-width: 760px;
+  margin: 0 auto 24px;
+  padding: 32px 20px;
+  background: var(--cream);
+  border: 3px double var(--gold);
+  outline: 1px solid #d8b46f;
+  outline-offset: -10px;
+  box-shadow: 0 8px 25px #6b3e3020;
+  position: relative;
+}
+
+.ornament {
+  color: var(--gold);
+  font-size: 30px;
+  margin: 8px 0 15px;
+}
+
+.section-title {
+  font-size: clamp(27px, 7vw, 42px);
+  font-weight: normal;
+  color: var(--wine);
+  margin: 12px 0;
+}
+
+.section-subtitle {
+  color: #9a7138;
+  letter-spacing: 2px;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 12px 0;
+}
+
+.body-text {
+  line-height: 1.9;
+  font-size: 16px;
+  margin: 12px auto;
+  max-width: 590px;
+}
+
+.name-big {
+  font-size: clamp(25px, 6vw, 36px);
+  line-height: 1.5;
+  color: var(--wine);
+  margin: 10px 0;
+}
+
+.weds {
+  font-style: italic;
+  color: #a47b40;
+  font-size: 22px;
+  margin: 6px 0;
+}
+
+.address {
+  line-height: 1.9;
+  font-size: 15px;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.event-box {
+  padding: 22px 12px;
+  border: 1px solid #d6b875;
+  background: #fffaf0;
+  line-height: 1.9;
+}
+
+.event-box h3 {
+  color: var(--wine);
+  font-size: 22px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.event-date {
+  color: #8b622b;
+  font-weight: bold;
+}
+
+.map-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: white;
+  background: var(--wine);
+  text-decoration: none;
+  border-radius: 20px;
+  padding: 9px 15px;
+  font-size: 13px;
+}
+
+/* Rakim names */
+.rakim-list {
+  list-style: none;
+  max-width: 560px;
+  margin: 20px auto 0;
+  text-align: left;
+}
+
+.rakim-list li {
+  padding: 8px 5px;
+  border-bottom: 1px solid #e9d9b9;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.rakim-list li::before {
+  content: "❖";
+  color: var(--gold);
+  margin-right: 10px;
+}
+
+/* Little Angels */
+.angel-group {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  align-items: center;
+  max-width: 430px;
+  margin: 24px auto;
+  padding: 16px;
+  border: 1px solid #e0c58e;
+  background: #fffaf1;
+}
+
+.angel-letter {
+  color: var(--wine);
+  font-size: 62px;
+  border-right: 1px solid var(--gold);
+}
+
+.angel-names {
+  text-align: left;
+  padding-left: 20px;
+  line-height: 2;
+  letter-spacing: 2px;
+  font-size: 15px;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.time-box {
+  background: var(--wine);
+  color: white;
+  min-width: 66px;
+  padding: 12px 8px;
+}
+
+.time-box strong {
+  display: block;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.time-box span {
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.share-btn {
+  display: inline-block;
+  background: #276749;
+  color: white;
+  padding: 13px 20px;
+  border: 0;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 8px;
+}
+
+.footer {
+  color: #956c34;
+  line-height: 1.9;
+  margin-top: 20px;
+  font-style: italic;
+}
+
+@media (max-width: 520px) {
+  .cover-card {
+    min-height: 620px;
+    padding: 30px 18px;
+  }
+
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .invite-card {
+    padding: 30px 17px;
+  }
+
+  .body-text {
+    font-size: 15px;
+  }
+}
+
+@media print {
+  #cover, .share-btn, .open-btn, .map-link {
+    display: none !important;
+  }
+
+  #invitation {
+    display: block !important;
+    background: white;
+  }
+
+  .invite-card {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- FRONT COVER -->
+<section id="cover">
+  <div class="cover-card">
+
+    <div class="bismillah">
+      ﷽
+      <div class="small-label" style="margin-top:10px">
+        In the name of Allah
+      </div>
+    </div>
+
+    <div>
+      <div class="small-label">You are cordially invited</div>
+      <h1 class="cover-title">Wedding</h1>
+
+      <div class="date-line">
+        <span>Thursday</span>
+        <span class="date-number">12</span>
+        <span>November</span>
+      </div>
+      <div class="cover-year">2026</div>
+    </div>
+
+    <div>
+      <div class="cover-name">Saif Mohammad Shaikh</div>
+      <div class="cover-weds">Weds</div>
+      <div class="cover-name">Kishwar Naj</div>
+    </div>
+
+    <button class="open-btn" onclick="openInvitation()">
+      Open Invitation ✦
+    </button>
+
+  </div>
+</section>
+
+<!-- COMPLETE INVITATION -->
+<main id="invitation" class="hidden">
+
+  <!-- ISLAMIC INVITATION -->
+  <section class="invite-card">
+    <div class="ornament">❧ ❖ ❧</div>
+
+    <div class="bismillah">﷽</div>
+
+    <p class="body-text">
+      In the name of Allah, the Most Beneficent &amp; Most Merciful
+    </p>
+
+    <div class="ornament">۞</div>
+
+    <h2 class="section-title">Wedding Invitation</h2>
+
+    <p class="body-text">
+      On this Wedding be your Gracious Presence and Blessings
+    </p>
+
+    <p class="body-text">Assalamualaikum,</p>
+
+    <p class="body-text">
+      Cordially invites you to grace the Occasion of the Nikah Ceremony of
+    </p>
+
+    <p class="body-text">
+      Aabid Ali Shafi Mohammad Shaikh’s beloved Son
+    </p>
+
+    <div class="name-big">Saif Mohammad Shaikh</div>
+
+    <div class="weds">Weds</div>
+
+    <div class="name-big">Kishwar Naj</div>
+
+    <p class="body-text">
+      (O/o. Mehraj Khan Gulab Khan)<br>
+      from Tikamgarh, Madhya Pradesh
+    </p>
+
+    <div class="ornament">❧ ❖ ❧</div>
+  </section>
+
+  <!-- NIKAH AND WALIMA -->
+  <section class="invite-card">
+    <div class="ornament">❧ ❖ ❧</div>
+    <h2 class="section-title">Wedding Events</h2>
+    <p class="section-subtitle">Your presence will be our blessing</p>
+
+    <div class="event-grid">
+
+      <div class="event-box">
+        <h3>Nikah</h3>
+        <p class="event-date">Thursday, 12 November 2026</p>
+        <p>Hijari-1 Jamadil Akhar 1448</p>
+        <p>After Namaz-e-Isha</p>
+        <p class="address">
+          Quresh Hall,<br>
+          Opp. Alishan Shopping Center,<br>
+          Danilimda, Ahmedabad.
+        </p>
+        <a class="map-link"
+           href="https://www.google.com/maps/search/?api=1&query=Quresh+Hall+Danilimda+Ahmedabad"
+           target="_blank" rel="noopener">
+          View Location
+        </a>
+      </div>
+
+      <div class="event-box">
+        <h3>Dawat-E-Walima</h3>
+        <p class="event-date">Saturday, 14 November 2026</p>
+        <p>Hijari-3 Jamadil Akhar 1448</p>
+        <p>After Namaz-e-Maghrib</p>
+        <p class="address">
+          Jayantilal Bechardas Parmar Party Plot,<br>
+          Opp. Shahi Masjid, Shahealam Darwaja,<br>
+          Shahealam, Ahmedabad.
+        </p>
+        <a class="map-link"
+           href="https://www.google.com/maps/search/?api=1&query=Jayantilal+Bechardas+Parmar+Party+Plot+Ahmedabad"
+           target="_blank" rel="noopener">
+          View Location
+        </a>
+      </div>
+
+    </div>
+
+    <div class="ornament">❧ ❖ ❧</div>
+  </section>
+
+  <!-- INVITEE / FAMILY -->
+  <section class="invite-card">
+    <div class="ornament">❧ ❖ ❧</div>
+    <h2 class="section-title">With Best Compliments</h2>
+    <p class="section-subtitle">Your presence is our happiness</p>
+
+    <p class="body-text">
+      Haji Shafi Mo. Pirbux Shaikh (SP)<br>
+      Aabid Ali Haji Shafi Mo. Shaikh
+    </p>
+
+    <p class="address">
+      16, Dhruvnagar Society,<br>
+      Danilimda, Ahmedabad - 380028.
+      
+    </p>
+
+    <div class="ornament">❧ ❖ ❧</div>
+  </section>
+
+  <!-- RAKIM -->
+  <section class="invite-card">
+    <div class="ornament">❧ ❖ ❧</div>
+    <h2 class="section-title">Rakim</h2>
+    <p class="section-subtitle">With the blessings of family</p>
+
+    <ol class="rakim-list">
+      <li>Haji Shafi Mo. Pirbux Shaikh</li>
+      <li>Marhum Haji Mo. Sharif Pirbux Shaikh</li>
+      <li>Marhum Kasam Pirbux Shaikh</li>
+      <li>Marhum Yakub Pirbux Shaikh</li>
+      <li>Aiyub Pirbux Shaikh</li>
+      <li>Liyakat Gulab bhai</li>
+      <li>Abdul Qaiyum Haji Shafi Mo. Shaikh</li>
+      <li>Aabid Ali Haji Shafi Mo. Shaikh</li>
+      <li>Abbas Ali Haji Shafi Mo. Shaikh</li>
+      <li>Nasirkhan AmirKhan (Fupa)</li>
+      <li>Mo. Hussain (Hanif) Mo. Sharif Shaikh</li>
+      <li>Javed Yakub Shaikh</li>
+      <li>Mohsin Aiyub Shaikh</li>
+      <li>Wasim Aiyub Shaikh</li>
+      <li>Majid Abdul Qaiyum Shaikh</li>
+      <li>Mo. Kaif Abdul Qaiyum Shaikh</li>
+      <li>Mushahid Aabid Ali Shaikh</li>
+      <li>Avesh Abbas Ali Shaikh</li>
+      <li>Ashad Aabid Ali Shaikh</li>
+      <li>Ziauddin Mo. Hussain</li>
+      <li>Sahil Mo. Hussain</li>
+      <li>Mo. Ali Nasir Khan</li>
+      <li>Hamza Wasim</li>
+      <li>Zishan Wasim</li>
+      <li>Inamul Hasan Jawed</li>
+      <li>Orhan Mohsin</li>
+      <li>Ateeq Noor Mo. Kalawat (Damad)</li>
+      <li>Aabid Ismail Qureshi (Damad)</li>
+      <li>Firoz Abdul Sattar Sangram (Damad)</li>
+      <li>Mo. Iqbal Mo. Shamim (Mamu)</li>
+      <li>Mo. Israr Mo. Shamim (Mamu)</li>
+      <li>Anwar Mo. Shamim (Mamu)</li>
+      <li>Abraar Mo. Shamim (Mamu)</li>
+      <li>Iman Mo. Shamim (Mamu)</li>
+    </ol>
+
+    <div class="ornament">❧ ❖ ❧</div>
+  </section>
+
+  <!-- LITTLE ANGELS -->
+  <section class="invite-card">
+    <div class="ornament">❧ ❖ ❧</div>
+    <h2 class="section-title">Little Angels</h2>
+
+    <div class="angel-group">
+      <div class="angel-letter">Z</div>
+      <div class="angel-names">
+        AKI<br>
+        JUNAID<br>
+        ZEHRA
+      </div>
+    </div>
+
+    <div class="angel-group">
+      <div class="angel-letter">H</div>
+      <div class="angel-names">
+        ASNAIN<br>
+        AMMAD<br>
+        IFZA<br>
+        AANI<br>
+        IZAN<br>
+        IBA
+      </div>
+    </div>
+
+    <div class="ornament">❧ ❖ ❧</div>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section class="invite-card">
+    <div class="ornament">❧ ❖ ❧</div>
+    <h2 class="section-title">Counting the Moments</h2>
+    <p class="body-text">Until the blessed day of Nikah</p>
+
+    <div class="countdown">
+      <div class="time-box">
+        <strong id="days">--</strong>
+        <span>DAYS</span>
+      </div>
+      <div class="time-box">
+        <strong id="hours">--</strong>
+        <span>HOURS</span>
+      </div>
+      <div class="time-box">
+        <strong id="minutes">--</strong>
+        <span>MINUTES</span>
+      </div>
+      <div class="time-box">
+        <strong id="seconds">--</strong>
+        <span>SECONDS</span>
+      </div>
+    </div>
+
+    <p id="countdown-message" class="body-text"></p>
+
+    <button class="share-btn" onclick="shareInvitation()">
+      Share Invitation
+    </button>
+
+    <div class="footer">
+      With Duas &amp; Love<br>
+      May Allah bless the couple with happiness, peace and barakah.
+      <div class="ornament">۞</div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+function openInvitation() {
+  document.getElementById("cover").classList.add("hidden");
+  document.getElementById("invitation").classList.remove("hidden");
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+function updateCountdown() {
+  // India Standard Time: 12 November 2026
+  const weddingDate = new Date("2026-11-12T00:00:00+05:30");
+  const now = new Date();
+  const difference = weddingDate.getTime() - now.getTime();
+
+  if (difference <= 0) {
+    document.getElementById("days").textContent = "0";
+    document.getElementById("hours").textContent = "0";
+    document.getElementById("minutes").textContent = "0";
+    document.getElementById("seconds").textContent = "0";
+    document.getElementById("countdown-message").textContent =
+      "May Allah bless this beautiful occasion.";
+    return;
+  }
+
+  const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+  const hours = Math.floor(
+    (difference / (1000 * 60 * 60)) % 24
+  );
+  const minutes = Math.floor(
+    (difference / (1000 * 60)) % 60
+  );
+  const seconds = Math.floor(
+    (difference / 1000) % 60
+  );
+
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = hours;
+  document.getElementById("minutes").textContent = minutes;
+  document.getElementById("seconds").textContent = seconds;
+
+  document.getElementById("countdown-message").textContent =
+    "The special day is getting closer!";
+}
+
+async function shareInvitation() {
+  const shareData = {
+    title: "SK Wedding Invitation",
+    text: "You are cordially invited to the wedding of Saif Mohammad Shaikh and Kishwar Naj on 12 November 2026."
+  };
+
+  if (navigator.share) {
+    try {
+      await navigator.share(shareData);
+    } catch (error) {
+      // Sharing cancelled by the user.
+    }
+  } else if (navigator.clipboard) {
+    try {
+      await navigator.clipboard.writeText(
+        shareData.text + " Nikah: 12 November 2026. Walima: 14 November 2026."
+      );
+      alert("Invitation text copied!");
+    } catch (error) {
+      alert(shareData.text);
+    }
+  } else {
+    alert(shareData.text);
+  }
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
